@@ -1,0 +1,1 @@
+{"version":3,"sources":["courseActions.js"],"names":[],"mappings":";;;;;kBAAwB,Y;AAAT,SAAS,YAAT,CAAsB,MAAtB,EAA8B;AAC3C,SAAO,EAAE,MAAM,eAAR,EAAyB,cAAzB,EAAP;AACD","file":"courseActions-compiled.js","sourcesContent":["export default function createCourse(course) {\n  return { type: 'CREATE_COURSE', course};\n};\n"]}

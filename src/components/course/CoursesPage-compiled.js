@@ -59,13 +59,33 @@ function _wrapComponent(id) {
 var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
   _inherits(CoursesPage, _React$Component);
 
-  function CoursesPage() {
+  function CoursesPage(props, context) {
     _classCallCheck(this, CoursesPage);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(CoursesPage).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CoursesPage).call(this, props, context));
+
+    _this.state = {
+      course: { title: '' }
+    };
+
+    _this.onTitleChange = _this.onTitleChange.bind(_this);
+    _this.onClickSave = _this.onClickSave.bind(_this);
+    return _this;
   }
 
   _createClass(CoursesPage, [{
+    key: 'onTitleChange',
+    value: function onTitleChange(event) {
+      var course = this.state.course;
+      course.title = event.target.value;
+      this.setState({ course: course });
+    }
+  }, {
+    key: 'onClickSave',
+    value: function onClickSave(event) {
+      alert('Saving ' + this.state.course.title);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react3.default.createElement(
@@ -75,15 +95,26 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
           'h1',
           null,
           'Courses'
-        )
+        ),
+        _react3.default.createElement(
+          'h2',
+          null,
+          'Add Course'
+        ),
+        _react3.default.createElement('input', {
+          type: 'text',
+          onChange: this.onTitleChange,
+          value: this.state.course.title }),
+        _react3.default.createElement('input', {
+          type: 'submit',
+          value: 'Save',
+          onClick: this.onClickSave })
       );
     }
   }]);
 
   return CoursesPage;
 }(_react3.default.Component));
-
-;
 
 exports.default = CoursesPage;
 
