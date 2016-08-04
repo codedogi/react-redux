@@ -20,6 +20,8 @@ var _routes = require('./routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 
+var _courseActions = require('./actions/courseActions');
+
 require('./styles/styles.css');
 
 require('../node_modules/bootstrap/dist/css/bootstrap.min.css');
@@ -28,6 +30,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var store = (0, _configureStore2.default)(); // Webpack can import CSS files too!
 
+store.dispatch((0, _courseActions.loadCourses)());
 
 (0, _reactDom.render)(_react2.default.createElement(
   _reactRedux.Provider,

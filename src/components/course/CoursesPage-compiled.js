@@ -30,6 +30,10 @@ var _courseActions = require('../../actions/courseActions');
 
 var courseActions = _interopRequireWildcard(_courseActions);
 
+var _CourseList = require('./CourseList');
+
+var _CourseList2 = _interopRequireDefault(_CourseList);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -72,30 +76,10 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
   function CoursesPage(props, context) {
     _classCallCheck(this, CoursesPage);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CoursesPage).call(this, props, context));
-
-    _this.state = {
-      course: { title: '' }
-    };
-
-    _this.onTitleChange = _this.onTitleChange.bind(_this);
-    _this.onClickSave = _this.onClickSave.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(CoursesPage).call(this, props, context));
   }
 
   _createClass(CoursesPage, [{
-    key: 'onTitleChange',
-    value: function onTitleChange(event) {
-      var course = this.state.course;
-      course.title = event.target.value;
-      this.setState({ course: course });
-    }
-  }, {
-    key: 'onClickSave',
-    value: function onClickSave(event) {
-      this.props.actions.createCourse(this.state.course);
-    }
-  }, {
     key: 'courseRow',
     value: function courseRow(course, index) {
       return _react3.default.createElement(
@@ -107,6 +91,9 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var courses = this.props.courses;
+
+
       return _react3.default.createElement(
         'div',
         null,
@@ -115,20 +102,7 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
           null,
           'Courses'
         ),
-        this.props.courses.map(this.courseRow),
-        _react3.default.createElement(
-          'h2',
-          null,
-          'Add Course'
-        ),
-        _react3.default.createElement('input', {
-          type: 'text',
-          onChange: this.onTitleChange,
-          value: this.state.course.title }),
-        _react3.default.createElement('input', {
-          type: 'submit',
-          value: 'Save',
-          onClick: this.onClickSave })
+        _react3.default.createElement(_CourseList2.default, { courses: courses })
       );
     }
   }]);
