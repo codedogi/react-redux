@@ -3,9 +3,16 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = createCourse;
+exports.createCourse = createCourse;
+
+var _actionTypes = require('./actionTypes');
+
+var types = _interopRequireWildcard(_actionTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function createCourse(course) {
-  return { type: 'CREATE_COURSE', course: course };
-};
+  return { type: types.CREATE_COURSE, course: course };
+}
 
 //# sourceMappingURL=courseActions-compiled.js.map
