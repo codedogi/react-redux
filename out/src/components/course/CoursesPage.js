@@ -4,11 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = require('D:\\PluralSight\\react-redux\\node_modules\\babel-preset-react-hmre\\node_modules\\redbox-react\\lib\\index.js');
+var _index = require('C:\\dev\\react-redux\\node_modules\\babel-preset-react-hmre\\node_modules\\redbox-react\\lib\\index.js');
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = require('D:\\PluralSight\\react-redux\\node_modules\\babel-preset-react-hmre\\node_modules\\react-transform-catch-errors\\lib\\index.js');
+var _index3 = require('C:\\dev\\react-redux\\node_modules\\babel-preset-react-hmre\\node_modules\\react-transform-catch-errors\\lib\\index.js');
 
 var _index4 = _interopRequireDefault(_index3);
 
@@ -16,7 +16,7 @@ var _react2 = require('react');
 
 var _react3 = _interopRequireDefault(_react2);
 
-var _index5 = require('D:\\PluralSight\\react-redux\\node_modules\\babel-preset-react-hmre\\node_modules\\react-transform-hmr\\lib\\index.js');
+var _index5 = require('C:\\dev\\react-redux\\node_modules\\babel-preset-react-hmre\\node_modules\\react-transform-hmr\\lib\\index.js');
 
 var _index6 = _interopRequireDefault(_index5);
 
@@ -34,6 +34,8 @@ var _CourseList = require('./CourseList');
 
 var _CourseList2 = _interopRequireDefault(_CourseList);
 
+var _reactRouter = require('react-router');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -50,15 +52,15 @@ var _components = {
   }
 };
 
-var _DPluralSightReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-  filename: 'D:/PluralSight/react-redux/src/components/course/CoursesPage.js',
+var _CDevReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+  filename: 'src/components/course/CoursesPage.js',
   components: _components,
   locals: [module],
   imports: [_react3.default]
 });
 
-var _DPluralSightReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-  filename: 'D:/PluralSight/react-redux/src/components/course/CoursesPage.js',
+var _CDevReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+  filename: 'src/components/course/CoursesPage.js',
   components: _components,
   locals: [],
   imports: [_react3.default, _index2.default]
@@ -66,7 +68,7 @@ var _DPluralSightReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTran
 
 function _wrapComponent(id) {
   return function (Component) {
-    return _DPluralSightReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2(_DPluralSightReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+    return _CDevReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2(_CDevReactReduxNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
   };
 }
 
@@ -76,7 +78,10 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
   function CoursesPage(props, context) {
     _classCallCheck(this, CoursesPage);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(CoursesPage).call(this, props, context));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CoursesPage).call(this, props, context));
+
+    _this.redirectToAddCoursePage = _this.redirectToAddCoursePage.bind(_this);
+    return _this;
   }
 
   _createClass(CoursesPage, [{
@@ -87,6 +92,11 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
         { key: index },
         course.title
       );
+    }
+  }, {
+    key: 'redirectToAddCoursePage',
+    value: function redirectToAddCoursePage() {
+      _reactRouter.browserHistory.push('/course');
     }
   }, {
     key: 'render',
@@ -102,6 +112,10 @@ var CoursesPage = _wrapComponent('CoursesPage')(function (_React$Component) {
           null,
           'Courses'
         ),
+        _react3.default.createElement('input', { type: 'submit',
+          value: 'Add Course',
+          className: 'btn btn-primary',
+          onClick: this.redirectToAddCoursePage }),
         _react3.default.createElement(_CourseList2.default, { courses: courses })
       );
     }
@@ -128,5 +142,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CoursesPage);
-
-//# sourceMappingURL=CoursesPage-compiled.js.map
+//# sourceMappingURL=CoursesPage.js.map

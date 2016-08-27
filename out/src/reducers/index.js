@@ -10,12 +10,16 @@ var _courseReducer = require('./courseReducer');
 
 var _courseReducer2 = _interopRequireDefault(_courseReducer);
 
+var _authorReducer = require('./authorReducer');
+
+var _authorReducer2 = _interopRequireDefault(_authorReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  courses: _courseReducer2.default
+  courses: _courseReducer2.default,
+  authors: _authorReducer2.default
 });
 
 exports.default = rootReducer;
-
-//# sourceMappingURL=index-compiled.js.map
+//# sourceMappingURL=index.js.map

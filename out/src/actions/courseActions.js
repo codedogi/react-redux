@@ -5,6 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.loadCoursesSuccess = loadCoursesSuccess;
 exports.loadCourses = loadCourses;
+exports.createCourseSuccess = createCourseSuccess;
+exports.updateCourseSuccess = updateCourseSuccess;
+exports.saveCourse = saveCourse;
 
 var _actionTypes = require('./actionTypes');
 
@@ -32,4 +35,21 @@ function loadCourses() {
   };
 }
 
-//# sourceMappingURL=courseActions-compiled.js.map
+function createCourseSuccess(course) {
+  return { type: types.CREATE_COURSE_SUCCESS, course: course };
+}
+
+function updateCourseSuccess(course) {
+  return { type: types.UPDATE_COURSE_SUCCESS, course: course };
+}
+
+function saveCourse(course) {
+  return function (dispatch) {
+    return _mockCourseApi2.default.saveCourse(course).then(function (savedCourse) {
+      course.id ? dispatch(updateCourseSuccess(savedCourse)) : dispatch(createCourseSuccess(savedCourse));
+    }).catch(function (error) {
+      throw error;
+    });
+  };
+}
+//# sourceMappingURL=courseActions.js.map
