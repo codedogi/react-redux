@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../src/reducers/initialState.js"],"names":[],"mappings":";;;;;kBAAe;AACb,WAAS,EADI;AAEb,WAAS;AAFI,C","file":"initialState.js","sourcesContent":["export default {\n  authors: [],\n  courses: []\n};\n"]}
+{"version":3,"sources":["../../../src/reducers/initialState.js"],"names":[],"mappings":";;;;;kBAAe;AACb,WAAS,EADI;AAEb,WAAS,EAFI;AAGb,uBAAqB;AAHR,C","file":"initialState.js","sourcesContent":["export default {\n  authors: [],\n  courses: [],\n  ajaxCallsInProgress: 0\n};\n"]}

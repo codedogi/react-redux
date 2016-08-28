@@ -14,6 +14,8 @@ var _actionTypes = require('./actionTypes');
 
 var types = _interopRequireWildcard(_actionTypes);
 
+var _ajaxStatusActions = require('./ajaxStatusActions');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -24,6 +26,7 @@ function loadAuthorsSuccess(authors) {
 
 function loadAuthors() {
   return function (dispatch) {
+    dispatch((0, _ajaxStatusActions.beginAjaxCall)());
     return _mockAuthorApi2.default.getAllAuthors().then(function (authors) {
       dispatch(loadAuthorsSuccess(authors));
     }).catch(function (error) {

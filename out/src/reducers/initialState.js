@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   authors: [],
-  courses: []
+  courses: [],
+  ajaxCallsInProgress: 0
 };
 //# sourceMappingURL=initialState.js.map

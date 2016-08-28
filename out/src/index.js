@@ -28,10 +28,12 @@ require('./styles/styles.css');
 
 require('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 
+require('../node_modules/toastr/build/toastr.min.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var store = (0, _configureStore2.default)(); // Webpack can import CSS files too!
-
+// Webpack can import CSS files too!
+var store = (0, _configureStore2.default)();
 store.dispatch((0, _courseActions.loadCourses)());
 store.dispatch((0, _authorActions.loadAuthors)());
 

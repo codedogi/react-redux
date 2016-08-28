@@ -34,6 +34,10 @@ var _CourseForm = require('./CourseForm');
 
 var _CourseForm2 = _interopRequireDefault(_CourseForm);
 
+var _toastr = require('toastr');
+
+var _toastr2 = _interopRequireDefault(_toastr);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -80,7 +84,8 @@ var ManageCoursePage = _wrapComponent('ManageCoursePage')(function (_React$Compo
 
     _this.state = {
       course: Object.assign({}, _this.props.course),
-      errors: {}
+      errors: {},
+      saving: false
     };
 
     _this.updateCourseState = _this.updateCourseState.bind(_this);
@@ -107,8 +112,22 @@ var ManageCoursePage = _wrapComponent('ManageCoursePage')(function (_React$Compo
   }, {
     key: 'saveCourse',
     value: function saveCourse(event) {
+      var _this2 = this;
+
       event.preventDefault();
-      this.props.actions.saveCourse(this.state.course);
+      this.setState({ saving: true });
+      this.props.actions.saveCourse(this.state.course).then(function () {
+        return _this2.redirect();
+      }).catch(function (error) {
+        _toastr2.default.error(error);
+        _this2.setState({ saving: false });
+      });
+    }
+  }, {
+    key: 'redirect',
+    value: function redirect() {
+      this.setState({ saving: false });
+      _toastr2.default.success('Course saved');
       this.context.router.push('/courses');
     }
   }, {
@@ -119,7 +138,8 @@ var ManageCoursePage = _wrapComponent('ManageCoursePage')(function (_React$Compo
         onChange: this.updateCourseState,
         onSave: this.saveCourse,
         course: this.state.course,
-        errors: this.state.errors
+        errors: this.state.errors,
+        saving: this.state.saving
       });
     }
   }]);
